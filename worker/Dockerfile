@@ -3,6 +3,7 @@ FROM nvtienanh/spark-base:${SPARK_BASE}
 
 LABEL MAINTAINER = "Anh Nguyen <nvtienanh@gmail.com>" 
 
+HEALTHCHECK CMD curl -f http://localhost:8081/ || exit 1
 COPY worker.sh /
 
 ENV SPARK_WORKER_WEBUI_PORT 8081
