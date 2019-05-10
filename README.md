@@ -1,5 +1,6 @@
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/big-data-europe/Lobby)
-# Spark docker
+[![Build Status](https://travis-ci.org/nvtienanh/docker-spark.svg?branch=master)](https://travis-ci.org/nvtienanh/docker-spark)
+
+# Docker image: Apache Spark
 
 Docker images to:
 * Setup a standalone [Apache Spark](http://spark.apache.org/) cluster running one Spark Master and multiple Spark workers
