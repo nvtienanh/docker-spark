@@ -18,21 +18,21 @@ COPY finish-step.sh /
 ADD https://raw.githubusercontent.com/guilhem/apt-get-install/master/apt-get-install /usr/bin/
 RUN chmod +x /usr/bin/apt-get-install
 
-COPY spark-2.4.3-bin-without-hadoop.tgz /tmp/spark.tgz
-RUN tar -xvzf /tmp/spark.tgz -C / \
-    && mv spark-${SPARK_VERSION}-bin-without-hadoop spark \
-    && rm /tmp/spark.tgz \
-    && cd /
+# COPY spark-2.4.3-bin-without-hadoop.tgz /tmp/spark.tgz
+# RUN tar -xvzf /tmp/spark.tgz -C / \
+#     && mv spark-${SPARK_VERSION}-bin-without-hadoop spark \
+#     && rm /tmp/spark.tgz \
+#     && cd /
 
-# RUN apt-get-install -y curl wget \
-#       && chmod +x *.sh \
-#       && wget http://apache.mirror.iphh.net/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
-#       && tar -xvzf spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
-#       && mv spark-${SPARK_VERSION}-bin-without-hadoop spark \
-#       && rm spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
-#       #&& cd /css \
-#       #&& jar uf /spark/jars/spark-core_2.11-${SPARK_VERSION}.jar org/apache/spark/ui/static/timeline-view.css \
-#       && cd /
+RUN apt-get-install -y curl wget \
+      && chmod +x *.sh \
+      && wget https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
+      && tar -xvzf spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
+      && mv spark-${SPARK_VERSION}-bin-without-hadoop spark \
+      && rm spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
+      #&& cd /css \
+      #&& jar uf /spark/jars/spark-core_2.11-${SPARK_VERSION}.jar org/apache/spark/ui/static/timeline-view.css \
+      && cd /
 
 ENV SPARK_HOME /spark/
 
