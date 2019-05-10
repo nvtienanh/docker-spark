@@ -13,7 +13,7 @@ Currently supported versions:
 Add the following services to your `docker-compose.yml` to integrate a Spark master and Spark worker in [your BDE pipeline](https://github.com/big-data-europe/app-bde-pipeline):
 ```yml
 spark-master:
-  image: bde2020/spark-master:2.4.0-hadoop3.1
+  image: nvtienanh/spark-master:2.4.3-hadoop3.2.0
   container_name: spark-master
   ports:
     - "8080:8080"
@@ -22,7 +22,7 @@ spark-master:
     - INIT_DAEMON_STEP=setup_spark
     - "constraint:node==<yourmasternode>"
 spark-worker-1:
-  image: bde2020/spark-worker:2.4.0-hadoop3.1
+  image: nvtienanh/spark-worker:2.4.3-hadoop3.2.0
   container_name: spark-worker-1
   depends_on:
     - spark-master
@@ -32,7 +32,7 @@ spark-worker-1:
     - "SPARK_MASTER=spark://spark-master:7077"
     - "constraint:node==<yourmasternode>"
 spark-worker-2:
-  image: bde2020/spark-worker:2.4.0-hadoop3.1
+  image: nvtienanh/spark-worker:2.4.3-hadoop3.2.0
   container_name: spark-worker-2
   depends_on:
     - spark-master
@@ -48,12 +48,12 @@ Make sure to fill in the `INIT_DAEMON_STEP` as configured in your pipeline.
 ### Spark Master
 To start a Spark master:
 
-    docker run --name spark-master -h spark-master -e ENABLE_INIT_DAEMON=false -d bde2020/spark-master:2.4.0-hadoop3.0
+    docker run --name spark-master -h spark-master -e ENABLE_INIT_DAEMON=false -d nvtienanh/spark-master:2.4.0-hadoop3.0
 
 ### Spark Worker
 To start a Spark worker:
 
-    docker run --name spark-worker-1 --link spark-master:spark-master -e ENABLE_INIT_DAEMON=false -d bde2020/spark-worker:2.4.0-hadoop3.1
+    docker run --name spark-worker-1 --link spark-master:spark-master -e ENABLE_INIT_DAEMON=false -d nvtienanh/spark-worker:2.4.0-hadoop3.1
 
 ## Launch a Spark application
 Building and running your Spark application on top of the Spark cluster is as simple as extending a template Docker image. Check the template's README for further documentation.
