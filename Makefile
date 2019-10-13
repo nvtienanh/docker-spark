@@ -1,4 +1,4 @@
-SPARK_TAG := 2.4.3-hadoop3.2.0
+SPARK_TAG := 2.4.3-hadoop3.2.1
 
 build:
 	docker build -t nvtienanh/spark-base:$(SPARK_TAG) ./base
