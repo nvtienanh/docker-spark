@@ -1,4 +1,4 @@
-ARG SPARK_BASE=2.4.3-hadoop3.2.0
+ARG SPARK_BASE=2.4.3-hadoop3.2.1
 FROM nvtienanh/spark-base:${SPARK_BASE}
 
 LABEL MAINTAINER = "Anh Nguyen <nvtienanh@gmail.com>" 
