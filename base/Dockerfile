@@ -18,9 +18,8 @@ COPY finish-step.sh /
 
 #COPY bde-spark.css /css/org/apache/spark/ui/static/timeline-view.css
 
-RUN apk add --no-cache nss libc6-compat
+RUN apk add --no-cache nss
 RUN \
-      ln -s /lib64/ld-linux-x86-64.so.2 /lib/ld-linux-x86-64.so.2 \
       && chmod +x *.sh \
       && wget https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-without-hadoop.tgz \
       && tar -xvzf spark-$SPARK_VERSION-bin-without-hadoop.tgz \
@@ -38,8 +37,8 @@ RUN chmod +x /wait-for-step.sh && chmod +x /execute-step.sh && chmod +x /finish-
 # Note: this is needed when you use Python 3.3 or greater
 ENV PYTHONHASHSEED 1
 
-COPY hive-site.xml /spark/conf/
-COPY spark-env.sh /spark/conf/
+COPY hive-site.xml /opt/spark/conf/
+COPY spark-env.sh /opt/spark/conf/
 
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
