@@ -17,7 +17,7 @@ else
     IMAGE_TAG=$BRANCH
 fi
 
-build() {
+deploy() {
     NAME=$1
     IMAGE_TAG=$2
     SPARK_VERSION=$3
