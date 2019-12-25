@@ -38,7 +38,6 @@ build() {
 deploy base $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
 deploy master $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
 deploy worker $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
-
 # build java-template template/java
 # build scala-template template/scala
 # build python-template template/python
