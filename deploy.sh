@@ -24,21 +24,22 @@ deploy() {
     IMAGE_TAG=$2
     SPARK_VERSION=$3
     HADOOP_TAG=$4
-    IMAGE=nvtienanh/spark-$NAME:$IMAGE_TAG
-    cd $([ -z "$1" ] && echo "./$NAME" || echo "$1")
+    IMAGE=nvtienanh/spark-base:$IMAGE_TAG
+    cd $([ -z "$1" ] && echo "$1" || echo "$1")
     echo '--------------------------' building $IMAGE in $(pwd)
     docker build \
-     -t $IMAGE \
-     --build-arg IMAGE_TAG=$IMAGE_TAG \
-     --build-arg HADOOP_TAG=$HADOOP_TAG \
-     --build-arg SPARK_VERSION=$SPARK_VERSION .
+    -t $IMAGE \
+    --build-arg IMAGE_TAG=$IMAGE_TAG \
+    --build-arg HADOOP_TAG=$HADOOP_TAG \
+    --build-arg SPARK_VERSION=$SPARK_VERSION .
     cd -
     docker push $IMAGE
 }
 
-deploy base $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
-deploy master $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
-deploy worker $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
+
+deploy base $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine 
+# deploy master $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
+# deploy worker $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
 # build java-template template/java
 # build scala-template template/scala
 # build python-template template/python
