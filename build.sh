@@ -21,7 +21,7 @@ fi
 
 if [ $BRANCH == "master" ]
 then
-    SPARK_VERSION="3.0.0"
+    SPARK_VERSION="2.4.4"
     IMAGE_TAG="latest"
 else
     SPARK_VERSION="$(echo $BRANCH | cut -d'-' -f1)"
