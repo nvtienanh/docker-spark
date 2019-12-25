@@ -21,4 +21,4 @@ jobs:
     - name: Deploy Docker image
       run: |
         chmod +x ./deploy.sh
-        ./deploy.sh ${GITHUB_REF##*/}
+        sh ./deploy.sh ${GITHUB_REF##*/}
