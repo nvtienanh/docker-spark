@@ -2,16 +2,6 @@
 
 set -e
 
-TAG=2.4.3-hadoop3.2.1
-
-build() {
-    NAME=$1
-    IMAGE=nvtienanh/spark-$NAME:$TAG
-    cd $([ -z "$2" ] && echo "./$NAME" || echo "$2")
-    echo '--------------------------' building $IMAGE in $(pwd)
-    docker build -t $IMAGE .
-    cd -
-}
 if [ $# -eq 0 ]
     then
         BRANCH=$(git rev-parse --abbrev-ref HEAD)
@@ -42,12 +32,12 @@ build() {
      --build-arg HADOOP_TAG=$HADOOP_TAG \
      --build-arg SPARK_VERSION=$SPARK_VERSION .
     cd -
-    # docker push $IMAGE
+    docker push $IMAGE
 }
 
-build base $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
-# build master
-# build worker
+deploy base $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
+deploy master $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
+deploy worker $IMAGE_TAG $SPARK_VERSION 3.2.1-alpine
 # build submit
 # build java-template template/java
 # build scala-template template/scala
