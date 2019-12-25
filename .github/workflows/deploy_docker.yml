@@ -19,5 +19,4 @@ jobs:
     - name: Login to DockerHub
       run: docker login -u="nvtienanh" -p="${{ secrets.DOCKER_PASSWORD }}"
     - name: Deploy Docker image
-      run: chmod +x deploy.sh && deploy.sh ${GITHUB_REF##*/}
-      working-directory: ./
+      run: deploy.sh ${GITHUB_REF##*/}
