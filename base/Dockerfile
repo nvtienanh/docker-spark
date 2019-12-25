@@ -1,5 +1,6 @@
-ARG HADOOP_BASE=3.2.1-debian
-FROM nvtienanh/hadoop-base:${HADOOP_BASE}
+ARG HADOOP_TAG
+ARG SPARK_VERSION
+FROM nvtienanh/hadoop-base:${HADOOP_TAG}
 
 LABEL maintainer = "Anh Nguyen <nvtienanh@gmail.com>"
 
@@ -7,16 +8,11 @@ ENV ENABLE_INIT_DAEMON true
 ENV INIT_DAEMON_BASE_URI http://identifier/init-daemon
 ENV INIT_DAEMON_STEP spark_master_init
 
-ENV SPARK_VERSION=2.4.3
-
 COPY wait-for-step.sh /
 COPY execute-step.sh /
 COPY finish-step.sh /
 
 #COPY bde-spark.css /css/org/apache/spark/ui/static/timeline-view.css
-
-ADD https://raw.githubusercontent.com/guilhem/apt-get-install/master/apt-get-install /usr/bin/
-RUN chmod +x /usr/bin/apt-get-install
 
 # COPY spark-2.4.3-bin-without-hadoop.tgz /tmp/spark.tgz
 # RUN tar -xvzf /tmp/spark.tgz -C / \
@@ -24,20 +20,19 @@ RUN chmod +x /usr/bin/apt-get-install
 #     && rm /tmp/spark.tgz \
 #     && cd /
 
-RUN apt-get-install -y curl wget \
+RUN apk add --no-cache curl bash nss libc6-compat bzip2 \
+      && ln -s /lib64/ld-linux-x86-64.so.2 /lib/ld-linux-x86-64.so.2 \
       && chmod +x *.sh \
       && wget https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
       && tar -xvzf spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
-      && mv spark-${SPARK_VERSION}-bin-without-hadoop spark \
+      && mv spark-${SPARK_VERSION}-bin-without-hadoop /opt/spark \
       && rm spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
       #&& cd /css \
       #&& jar uf /spark/jars/spark-core_2.11-${SPARK_VERSION}.jar org/apache/spark/ui/static/timeline-view.css \
-      && cd /
+      && cd / \
+      && rm -rf /var/cache/apk/*
 
-ENV SPARK_HOME /spark/
-
-# RUN apt-get-install -y python3 python3-setuptools python3-pip
-
+ENV SPARK_HOME /opt/spark/
 ENV PATH /opt/conda/bin:$PATH
 ENV PYSPARK_PYTHON /opt/conda/bin/python
 ENV PYSPARK_DRIVER_PYTHON /opt/conda/bin/python
