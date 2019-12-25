@@ -15,7 +15,6 @@ ENV SPARK_HOME /opt/spark/
 COPY wait-for-step.sh /
 COPY execute-step.sh /
 COPY finish-step.sh /
-
 #COPY bde-spark.css /css/org/apache/spark/ui/static/timeline-view.css
 
 RUN apk add --no-cache nss
