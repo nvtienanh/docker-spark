@@ -19,7 +19,7 @@ COPY finish-step.sh /
 
 RUN apk add --no-cache nss
 RUN \
-      && chmod +x *.sh \
+      chmod +x *.sh \
       && wget https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-without-hadoop.tgz \
       && tar -xvzf spark-$SPARK_VERSION-bin-without-hadoop.tgz \
       && mv spark-$SPARK_VERSION-bin-without-hadoop /opt/spark \
