@@ -1,6 +1,6 @@
 ARG HADOOP_TAG
 ARG SPARK_VERSION
-FROM nvtienanh/hadoop-base:${HADOOP_TAG}
+FROM nvtienanh/hadoop-base:$HADOOP_TAG
 
 LABEL maintainer = "Anh Nguyen <nvtienanh@gmail.com>"
 
@@ -23,10 +23,10 @@ COPY finish-step.sh /
 RUN apk add --no-cache curl bash nss libc6-compat bzip2 \
       && ln -s /lib64/ld-linux-x86-64.so.2 /lib/ld-linux-x86-64.so.2 \
       && chmod +x *.sh \
-      && wget https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
-      && tar -xvzf spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
-      && mv spark-${SPARK_VERSION}-bin-without-hadoop /opt/spark \
-      && rm spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
+      && wget https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-without-hadoop.tgz \
+      && tar -xvzf spark-$SPARK_VERSION-bin-without-hadoop.tgz \
+      && mv spark-$SPARK_VERSION-bin-without-hadoop /opt/spark \
+      && rm spark-$SPARK_VERSION-bin-without-hadoop.tgz \
       #&& cd /css \
       #&& jar uf /spark/jars/spark-core_2.11-${SPARK_VERSION}.jar org/apache/spark/ui/static/timeline-view.css \
       && cd / \
