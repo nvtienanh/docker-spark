@@ -19,4 +19,4 @@ jobs:
     - name: Login to DockerHub
       run: docker login -u="nvtienanh" -p="${{ secrets.DOCKER_PASSWORD }}"
     - name: Deploy Docker image
-      run: echo $(pwd)
+      run: echo $(ls -a)
