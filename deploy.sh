@@ -17,6 +17,8 @@ else
     IMAGE_TAG=$BRANCH
 fi
 
+echo $BRANCH
+
 deploy() {
     NAME=$1
     IMAGE_TAG=$2
