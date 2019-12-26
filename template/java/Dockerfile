@@ -1,5 +1,5 @@
-ARG SPARK_BASE=2.4.3-hadoop3.2.1
-FROM nvtienanh/spark-submit:${SPARK_BASE}
+ARG SPARK_TAG=2.4.4.alpine
+FROM nvtienanh/spark-submit:${SPARK_TAG}
 
 LABEL MAINTAINER = "Anh Nguyen <nvtienanh@gmail.com>" 
 
