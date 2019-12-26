@@ -24,7 +24,7 @@ deploy() {
     IMAGE_TAG=$2
     SPARK_VERSION=$3
     HADOOP_TAG=$4
-    IMAGE=nvtienanh/spark-base:$IMAGE_TAG
+    IMAGE=nvtienanh/spark-$NAME:$IMAGE_TAG
     cd $([ -z "$1" ] && echo "$1" || echo "$1")
     echo '--------------------------' building $IMAGE in $(pwd)
     docker build \
