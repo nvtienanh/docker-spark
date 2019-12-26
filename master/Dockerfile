@@ -1,7 +1,18 @@
 ARG IMAGE_TAG=2.4.4-alpine
 FROM nvtienanh/spark-base:${IMAGE_TAG}
 
-LABEL MAINTAINER = "Anh Nguyen <nvtienanh@gmail.com>" 
+ARG SPARK_VERSION
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL org.label-schema.build-date=$BUILD_DATE \
+        org.label-schema.name="Apache Spark" \
+        org.label-schema.description="Apache Spark docker image based on Alpine Linux" \
+        org.label-schema.vcs-ref=$VCS_REF \
+        org.label-schema.vcs-url="https://github.com/nvtienanh/docker-spark/tree/$IMAGE_TAG/master" \
+        org.label-schema.vendor="nvtienanh" \
+        org.label-schema.version=$SPARK_VERSION \
+        org.label-schema.schema-version="1.0"
 
 HEALTHCHECK CMD curl -f http://localhost:8080/ || exit 1
 COPY master.sh /

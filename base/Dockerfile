@@ -1,9 +1,20 @@
 ARG HADOOP_TAG
 
 FROM nvtienanh/hadoop-base:$HADOOP_TAG
-ARG SPARK_VERSION
 
-LABEL maintainer = "Anh Nguyen <nvtienanh@gmail.com>"
+ARG IMAGE_TAG
+ARG SPARK_VERSION
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL org.label-schema.build-date=$BUILD_DATE \
+        org.label-schema.name="Apache Spark" \
+        org.label-schema.description="Apache Spark docker image based on Alpine Linux" \
+        org.label-schema.vcs-ref=$VCS_REF \
+        org.label-schema.vcs-url="https://github.com/nvtienanh/docker-spark/tree/$IMAGE_TAG/base" \
+        org.label-schema.vendor="nvtienanh" \
+        org.label-schema.version=$SPARK_VERSION \
+        org.label-schema.schema-version="1.0"
 
 ## INSTALL APACHE SPARK
 

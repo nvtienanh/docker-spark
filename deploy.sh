@@ -31,6 +31,8 @@ deploy() {
     -t $IMAGE \
     --build-arg IMAGE_TAG=$IMAGE_TAG \
     --build-arg HADOOP_TAG=$HADOOP_TAG \
+    --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+    --build-arg VCS_REF=`git rev-parse --short HEAD` \
     --build-arg SPARK_VERSION=$SPARK_VERSION .
     cd -
     docker push $IMAGE
