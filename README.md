@@ -12,25 +12,19 @@ Docker image infomation:
 
 [![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-base:2.4.4-alpine.svg)](https://hub.docker.com/r/nvtienanh/spark-base/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nvtienanh/spark-base)](https://hub.docker.com/r/nvtienanh/spark-base/)
-[![Docker Stars](https://img.shields.io/docker/stars/nvtienanh/spark-base)](https://hub.docker.com/r/nvtienanh/spark-base/)
 [![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-base/2.4.4-alpine)](https://hub.docker.com/r/nvtienanh/spark-base/)
-[![Docker Size](https://img.shields.io/microbadger/image-size/nvtienanh/spark-base/2.4.4-alpine)](https://hub.docker.com/r/nvtienanh/spark-base/)
 
 **spark-master**
 
 [![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-master:2.4.4-alpine.svg)](https://hub.docker.com/r/nvtienanh/spark-master/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nvtienanh/spark-master)](https://hub.docker.com/r/nvtienanh/spark-master/)
-[![Docker Stars](https://img.shields.io/docker/stars/nvtienanh/spark-master)](https://hub.docker.com/r/nvtienanh/spark-master/)
 [![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-master/2.4.4-alpine)](https://hub.docker.com/r/nvtienanh/spark-master/)
-[![Docker Size](https://img.shields.io/microbadger/image-size/nvtienanh/spark-master/2.4.4-alpine)](https://hub.docker.com/r/nvtienanh/spark-master/)
 
 **spark-worker**
 
 [![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-worker:2.4.4-alpine.svg)](https://hub.docker.com/r/nvtienanh/spark-worker/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nvtienanh/spark-worker)](https://hub.docker.com/r/nvtienanh/spark-worker/)
-[![Docker Stars](https://img.shields.io/docker/stars/nvtienanh/spark-worker)](https://hub.docker.com/r/nvtienanh/spark-worker/)
 [![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-worker/2.4.4-alpine)](https://hub.docker.com/r/nvtienanh/spark-worker/)
-[![Docker Size](https://img.shields.io/microbadger/image-size/nvtienanh/spark-worker/2.4.4-alpine)](https://hub.docker.com/r/nvtienanh/spark-worker/)
 
 
 ## Using Docker Compose
