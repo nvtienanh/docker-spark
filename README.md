@@ -5,7 +5,7 @@ Docker image infomation:
 * Linux: debian 9
 * Spark 2.4.3
 * Hadoop 3.2.1
-* Miniconda 4.7.12.1
+* Miniconda3 4.7.12.1
 * Python 3.7 supports Pyspark, Matplotlib, ...
 
 **spark-base**
