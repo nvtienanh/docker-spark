@@ -10,21 +10,21 @@ Docker image infomation:
 
 **spark-base**
 
-[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-base:master.svg)](https://hub.docker.com/r/nvtienanh/spark-base/)
+[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-base:latest.svg)](https://hub.docker.com/r/nvtienanh/spark-base/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nvtienanh/spark-base)](https://hub.docker.com/r/nvtienanh/spark-base/)
-[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-base/master)](https://hub.docker.com/r/nvtienanh/spark-base/)
+[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-base/latest)](https://hub.docker.com/r/nvtienanh/spark-base/)
 
 **spark-master**
 
-[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-master:master.svg)](https://hub.docker.com/r/nvtienanh/spark-master/)
+[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-master:latest.svg)](https://hub.docker.com/r/nvtienanh/spark-master/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nvtienanh/spark-master)](https://hub.docker.com/r/nvtienanh/spark-master/)
-[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-master/master)](https://hub.docker.com/r/nvtienanh/spark-master/)
+[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-master/latest)](https://hub.docker.com/r/nvtienanh/spark-master/)
 
 **spark-worker**
 
-[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-worker:master.svg)](https://hub.docker.com/r/nvtienanh/spark-worker/)
+[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-worker:latest.svg)](https://hub.docker.com/r/nvtienanh/spark-worker/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nvtienanh/spark-worker)](https://hub.docker.com/r/nvtienanh/spark-worker/)
-[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-worker/master)](https://hub.docker.com/r/nvtienanh/spark-worker/)
+[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-worker/latest)](https://hub.docker.com/r/nvtienanh/spark-worker/)
 
 
 ## Using Docker Compose
