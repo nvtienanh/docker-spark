@@ -1,30 +1,30 @@
 # Apache Spark
-[![CI status](https://github.com/nvtienanh/docker-spark/workflows/CI/badge.svg?branch=2.4.3-debian)](https://github.com/nvtienanh/docker-spark/actions?query=branch%3A2.4.3-debian++)
+[![CI status](https://github.com/nvtienanh/docker-spark/workflows/CI/badge.svg?branch=master)](https://github.com/nvtienanh/docker-spark/actions?query=branch%3Amaster++)
 
 Docker image infomation:
 * Linux: debian 9
-* Spark 2.4.3
-* Hadoop 3.2.1
-* Miniconda3 4.7.12.1
-* Python 3.7 supports Pyspark, Matplotlib, ...
+* Spark `2.4.3`
+* Hadoop `3.2.1`
+* Miniconda3 `4.7.12.1`
+* Python `3.7` supports Pyspark, Matplotlib, ...
 
 **spark-base**
 
-[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-base:2.4.3-debian.svg)](https://hub.docker.com/r/nvtienanh/spark-base/)
+[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-base:master.svg)](https://hub.docker.com/r/nvtienanh/spark-base/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nvtienanh/spark-base)](https://hub.docker.com/r/nvtienanh/spark-base/)
-[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-base/2.4.3-debian)](https://hub.docker.com/r/nvtienanh/spark-base/)
+[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-base/master)](https://hub.docker.com/r/nvtienanh/spark-base/)
 
 **spark-master**
 
-[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-master:2.4.3-debian.svg)](https://hub.docker.com/r/nvtienanh/spark-master/)
+[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-master:master.svg)](https://hub.docker.com/r/nvtienanh/spark-master/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nvtienanh/spark-master)](https://hub.docker.com/r/nvtienanh/spark-master/)
-[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-master/2.4.3-debian)](https://hub.docker.com/r/nvtienanh/spark-master/)
+[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-master/master)](https://hub.docker.com/r/nvtienanh/spark-master/)
 
 **spark-worker**
 
-[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-worker:2.4.3-debian.svg)](https://hub.docker.com/r/nvtienanh/spark-worker/)
+[![Docker Version](https://images.microbadger.com/badges/version/nvtienanh/spark-worker:master.svg)](https://hub.docker.com/r/nvtienanh/spark-worker/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nvtienanh/spark-worker)](https://hub.docker.com/r/nvtienanh/spark-worker/)
-[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-worker/2.4.3-debian)](https://hub.docker.com/r/nvtienanh/spark-worker/)
+[![Docker Layers](https://img.shields.io/microbadger/layers/nvtienanh/spark-worker/master)](https://hub.docker.com/r/nvtienanh/spark-worker/)
 
 
 ## Using Docker Compose
