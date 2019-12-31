@@ -1,13 +1,23 @@
-ARG HADOOP_BASE=3.2.1-debian
-FROM nvtienanh/hadoop-base:${HADOOP_BASE}
+ARG HADOOP_TAG
+FROM nvtienanh/hadoop-base:${HADOOP_TAG}
 
-LABEL maintainer = "Anh Nguyen <nvtienanh@gmail.com>"
+ARG IMAGE_TAG
+ARG SPARK_VERSION
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL org.label-schema.build-date=$BUILD_DATE \
+        org.label-schema.name="Apache Spark" \
+        org.label-schema.description="Apache Spark docker image based on Debian Linux" \
+        org.label-schema.vcs-ref=$VCS_REF \
+        org.label-schema.vcs-url="https://github.com/nvtienanh/docker-spark/tree/$IMAGE_TAG/base" \
+        org.label-schema.vendor="nvtienanh" \
+        org.label-schema.version=$SPARK_VERSION \
+        org.label-schema.schema-version="1.0"
 
 ENV ENABLE_INIT_DAEMON true
 ENV INIT_DAEMON_BASE_URI http://identifier/init-daemon
 ENV INIT_DAEMON_STEP spark_master_init
-
-ENV SPARK_VERSION=2.4.3
 
 COPY wait-for-step.sh /
 COPY execute-step.sh /
@@ -28,15 +38,16 @@ RUN apt-get-install -y curl wget \
       && chmod +x *.sh \
       && wget https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
       && tar -xvzf spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
-      && mv spark-${SPARK_VERSION}-bin-without-hadoop spark \
+      && mv spark-$SPARK_VERSION-bin-without-hadoop /opt/spark \
       && rm spark-${SPARK_VERSION}-bin-without-hadoop.tgz \
       #&& cd /css \
       #&& jar uf /spark/jars/spark-core_2.11-${SPARK_VERSION}.jar org/apache/spark/ui/static/timeline-view.css \
       && cd /
 
-ENV SPARK_HOME /spark/
+ENV SPARK_HOME /opt/spark/
 
 # RUN apt-get-install -y python3 python3-setuptools python3-pip
+ARG CONDA_VERSION="4.7.12.1"
 
 ENV PATH /opt/conda/bin:$PATH
 ENV PYSPARK_PYTHON /opt/conda/bin/python
@@ -47,7 +58,7 @@ RUN apt-get update --fix-missing && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+RUN wget --quiet http://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
     /opt/conda/bin/conda clean -tipsy && \
@@ -67,8 +78,8 @@ RUN chmod +x /wait-for-step.sh && chmod +x /execute-step.sh && chmod +x /finish-
 # Note: this is needed when you use Python 3.3 or greater
 ENV PYTHONHASHSEED 1
 
-COPY hive-site.xml /spark/conf/
-COPY spark-env.sh /spark/conf/
+COPY hive-site.xml /opt/spark//spark/conf/
+COPY spark-env.sh /opt/spark//spark/conf/
 
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
