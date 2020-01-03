@@ -28,7 +28,7 @@ COPY execute-step.sh /
 COPY finish-step.sh /
 #COPY bde-spark.css /css/org/apache/spark/ui/static/timeline-view.css3.0.0-preview2
 
-RUN apk add --no-cache nss
+RUN apk add --no-cache nss bash
 RUN \
       chmod +x *.sh \
       && wget https://archive.apache.org/dist/spark/spark-$SPARK_VERSION-preview2/spark-$SPARK_VERSION-preview2-bin-hadoop2.7.tgz \
@@ -67,7 +67,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 # Install conda
 RUN echo "**** install dev packages ****" && \
-    apk add --no-cache --virtual .build-dependencies ca-certificates && \
+    apk add --no-cache --virtual .build-dependencies ca-certificates wget && \
     \
     echo "**** get Miniconda ****" && \
     mkdir -p "$CONDA_DIR" && \
