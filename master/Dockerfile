@@ -1,4 +1,4 @@
-ARG IMAGE_TAG=2.4.4-alpine
+ARG IMAGE_TAG
 FROM nvtienanh/spark-base:${IMAGE_TAG}
 
 ARG SPARK_VERSION

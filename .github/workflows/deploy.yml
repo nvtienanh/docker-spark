@@ -3,7 +3,7 @@ name: CI
 on: 
   push:
     branches:
-      - 2.4.4-alpine
+      - 3.0.0-preview2
 
 jobs:
 

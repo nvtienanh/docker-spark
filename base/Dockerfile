@@ -1,6 +1,6 @@
 ARG HADOOP_TAG
 
-FROM nvtienanh/hadoop-base:$HADOOP_TAG
+FROM nvtienanh/oracle-jdk:1.8-alpine3.9
 
 ARG IMAGE_TAG
 ARG SPARK_VERSION
@@ -26,15 +26,15 @@ ENV SPARK_HOME /opt/spark/
 COPY wait-for-step.sh /
 COPY execute-step.sh /
 COPY finish-step.sh /
-#COPY bde-spark.css /css/org/apache/spark/ui/static/timeline-view.css
+#COPY bde-spark.css /css/org/apache/spark/ui/static/timeline-view.css3.0.0-preview2
 
 RUN apk add --no-cache nss
 RUN \
       chmod +x *.sh \
-      && wget https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-without-hadoop.tgz \
-      && tar -xvzf spark-$SPARK_VERSION-bin-without-hadoop.tgz \
-      && mv spark-$SPARK_VERSION-bin-without-hadoop /opt/spark \
-      && rm spark-$SPARK_VERSION-bin-without-hadoop.tgz \
+      && wget https://archive.apache.org/dist/spark/spark-$SPARK_VERSION-preview2/spark-$SPARK_VERSION-preview2-bin-hadoop2.7.tgz \
+      && tar -xvzf spark-$SPARK_VERSION-preview2-bin-hadoop2.7.tgz \
+      && mv spark-$SPARK_VERSION-preview2-bin-hadoop2.7 /opt/spark \
+      && rm spark-$SPARK_VERSION-preview2-bin-hadoop2.7.tgz \
       #&& cd /css \
       #&& jar uf /spark/jars/spark-core_2.11-${SPARK_VERSION}.jar org/apache/spark/ui/static/timeline-view.css \
       && cd / \
